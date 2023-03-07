@@ -5,3 +5,4 @@ TypeORM 是一个ORM框架，它可以运行在 NodeJS、Browser、Cordova、Pho
 [nestjs](https://docs.nestjs.cn/9/introduction)
 [typeOrm](https://typeorm.io/)
 [typeOrm中文文档](https://typeorm.bootcss.com/)
+[韩顺平 mysql](https://blog.csdn.net/LW_20180806/article/details/124536815)
