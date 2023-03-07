@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
+import { BeefModule } from './beef/beef.module';
+import { FeedModule } from './feed/feed.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,8 +17,10 @@ import { PostsModule } from './posts/posts.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    UsersModule,
     PostsModule,
+    BeefModule,
+    FeedModule,
+    UserModule,
   ],
 })
 export class AppModule {}
