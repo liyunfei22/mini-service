@@ -1,6 +1,5 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 import { Transform } from 'class-transformer';
-console.log('CreateUserDto');
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty({ message: '手机号不能为空' })

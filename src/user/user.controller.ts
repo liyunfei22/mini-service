@@ -8,10 +8,14 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private configService: ConfigService,
+  ) {}
 
   @Get()
   getAll() {
@@ -20,6 +24,7 @@ export class UserController {
 
   @Post('login')
   async login(@Body() createUserDto: CreateUserDto): Promise<{ id: number }> {
+    console.log(this.configService.get<string>('port'));
     const { phone, password } = createUserDto;
     const user = await this.userService.validateUser(phone, password);
     if (!user) {
