@@ -5,10 +5,12 @@ import {
   Body,
   BadRequestException,
   UnauthorizedException,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ConfigService } from '@nestjs/config';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('user')
 export class UserController {
@@ -22,6 +24,7 @@ export class UserController {
     return this.userService.getAll();
   }
 
+  // @UseGuards(AuthGuard('local'))
   @Post('login')
   async login(@Body() createUserDto: CreateUserDto): Promise<{ id: number }> {
     console.log(this.configService.get<string>('port'));

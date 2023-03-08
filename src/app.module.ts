@@ -5,10 +5,8 @@ import { BeefModule } from './beef/beef.module';
 import { FeedModule } from './feed/feed.module';
 import { UserModule } from './user/user.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 
 @Module({
@@ -32,9 +30,8 @@ import configuration from './config/configuration';
     FeedModule,
     UserModule,
     AuthModule,
-    UsersModule,
   ],
-  controllers: [AppController],
+  controllers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
