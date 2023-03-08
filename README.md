@@ -66,8 +66,11 @@ forRoutes({ path: 'ab*cd', method: RequestMethod.ALL });
 ### 函数式中间件
 
 ### 全局中间件
-## 异常过滤器 
+
+## 异常过滤器
+
 每个发生的异常都由全局异常过滤器处理, 当这个异常无法被识别时用户将收到以下 JSON 响应
+
 ```typescript
 {
     "statusCode": 500,
@@ -75,19 +78,24 @@ forRoutes({ path: 'ab*cd', method: RequestMethod.ALL });
 }
 
 ```
+
 ### 基础异常类 HttpException
+
 Nest提供了一个内置的 `HttpException` 类，它从 @nestjs/common 包中导入
+
 ```typescript
 @Get()
 async findAll() {
   throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
 }
 ```
+
 HttpException 构造函数有两个必要的参数来决定响应:
 
 - response 参数定义 JSON 响应体。它可以是 string 或 object，如下所述。
 
 - status参数定义HTTP状态代码。status-是有效的 HTTP 状态代码。 最佳实践是使用从@nestjs/common导入的 HttpStatus枚举。
+
 ```typescript
 
 @Get()
@@ -98,8 +106,11 @@ async findAll() {
   }, HttpStatus.FORBIDDEN);
 }
 ```
+
 ### 自定义异常
+
 ### 异常过滤器
+
 虽然基本（内置）异常过滤器可以为您自动处理许多情况，但有时您可能希望对异常层拥有完全控制权，例如，您可能希望基于某些动态因素添加日志记录或使用不同的 JSON 模式。 异常过滤器正是为此目的而设计的。 它们使您可以控制精确的控制流以及将响应的内容发送回客户端。
 
 |UnauthorizedException| 401 |
@@ -119,6 +130,7 @@ async findAll() {
 |BadGatewayException| 502 |
 |ServiceUnavailableException| 410 |
 |GatewayTimeoutException| 410 |
+
 ## TypeOrm
 
 TypeORM 是一个ORM框架，它可以运行在 NodeJS、Browser、Cordova、PhoneGap、Ionic、React Native、Expo 和 Electron 平台上，可以与 TypeScript 和 JavaScript (ES5,ES6,ES7,ES8)一起使用
@@ -317,6 +329,7 @@ export class User {
 })
 name: string;
 ```
+
 类型选项参考
 ColumnOptions中可用选项列表：
 
@@ -370,7 +383,9 @@ array: boolean - 用于可以是数组的 postgres 列类型（例如 int []）
 transformer: { from(value: DatabaseType): EntityType, to(value: EntityType): DatabaseType } - 用于将任意类型
 EntityType的属性编组为数据库支持的类型DatabaseType。
 注意：大多数列选项都是特定于 RDBMS 的，并且在MongoDB中不可用。
+
 ### 实体继承
+
 ## 用户表设计
 
 |字段| 类型| 键| 为空| 默认| 备注|
@@ -390,12 +405,22 @@ EntityType的属性编组为数据库支持的类型DatabaseType。
 [typeOrm中文文档](https://typeorm.bootcss.com/)
 [韩顺平 mysql](https://blog.csdn.net/LW_20180806/article/details/124536815)
 
-
 1.建项目
 2.curd
-3.typeORM
+3.typeORM: 表关系？？？
 4.中间件
 4.user接口
+4.加密bcryptjs
+
+```typescript
+// 加密处理 - 同步方法
+const hashPassword = bcryptjs.hashSync(password, 10)
+// 校验 - 使用同步方法
+const isOk = bcryptjs.compareSync(password, encryptPassword)
+```
+
+4.jwt
 5.异常处理
 6.统一数据: 异常处理 、拦截器、管道
 7.空值校验
+8.完善user表

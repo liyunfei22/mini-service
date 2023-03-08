@@ -21,6 +21,7 @@ export class TransformInterceptor<T>
     context: ExecutionContext,
     next: CallHandler,
   ): Observable<Response<T>> {
+    console.log('ExecutionContext', context);
     return next.handle().pipe(
       map((data) => ({
         code: 0,

@@ -5,7 +5,9 @@ import { BeefModule } from './beef/beef.module';
 import { FeedModule } from './feed/feed.module';
 import { UserModule } from './user/user.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
-
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { AppController } from './app.controller';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -22,7 +24,10 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
     BeefModule,
     FeedModule,
     UserModule,
+    AuthModule,
+    UsersModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

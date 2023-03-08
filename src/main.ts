@@ -8,7 +8,7 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.setGlobalPrefix('api'); // 设置全局路由前缀
-
+  console.log('s', process.env.NODE_ENV);
   app.useGlobalFilters(new HttpExceptionFilter()); // 使用全局过滤器
   app.useGlobalInterceptors(new TransformInterceptor()); // 使用全局拦截器
   app.useGlobalPipes(new ValidationPipe());

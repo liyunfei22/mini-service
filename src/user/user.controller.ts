@@ -20,7 +20,6 @@ export class UserController {
 
   @Post('login')
   async login(@Body() createUserDto: CreateUserDto): Promise<{ id: number }> {
-    console.log('CreateUserDto', createUserDto);
     const { phone, password } = createUserDto;
     const user = await this.userService.validateUser(phone, password);
     if (!user) {
