@@ -1,6 +1,5 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PostsModule } from './posts/posts.module';
 import { BeefModule } from './beef/beef.module';
 import { FeedModule } from './feed/feed.module';
 import { UserModule } from './user/user.module';
@@ -26,7 +25,6 @@ import { AppController } from './app.controller';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    PostsModule,
     BeefModule,
     FeedModule,
     UserModule,
