@@ -424,3 +424,4 @@ const isOk = bcryptjs.compareSync(password, encryptPassword)
 6.统一数据: 异常处理 、拦截器、管道
 7.空值校验
 8.完善user表
+9.docker集成  完成  改善：
