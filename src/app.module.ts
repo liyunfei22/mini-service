@@ -18,7 +18,7 @@ import { OrderModule } from './order/order.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'db',
+      host: 'localhost',
       port: 3306,
       username: 'root',
       password: '12345678',
