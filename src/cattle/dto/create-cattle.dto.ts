@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateBeefDto {
+export class CreateCattleDto {
   @ApiProperty()
   @IsString()
   @IsNotEmpty({ message: 'name不能为空' })
