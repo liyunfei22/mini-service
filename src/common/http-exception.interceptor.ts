@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 interface Response<T> {
   code: number;
   message: string;
-  data: T;
+  result: T;
 }
 
 @Injectable()
@@ -25,7 +25,7 @@ export class TransformInterceptor<T>
       map((data) => ({
         code: 0,
         message: '成功',
-        data,
+        result: data,
       })),
     );
   }

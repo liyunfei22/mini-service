@@ -12,7 +12,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     response.status(status).json({
       code: 2,
       message: 'Validation failed',
-      data: this.formatErrors(errors),
+      result: this.formatErrors(errors),
     });
   }
 

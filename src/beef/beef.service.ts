@@ -15,6 +15,21 @@ export class BeefService {
     return await this.beefRepository.find();
   }
 
+  async paginate(
+    page: number,
+    pageSize: number,
+  ): Promise<{ beefs: Beef[]; totalCount: number }> {
+    const [beefs, totalCount] = await this.beefRepository
+      .createQueryBuilder('beef')
+      .skip((page - 1) * pageSize)
+      .take(pageSize)
+      .getManyAndCount();
+    return {
+      beefs,
+      totalCount,
+    };
+  }
+
   async findOne(id: number) {
     return await this.beefRepository.findOneBy({ id });
   }

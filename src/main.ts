@@ -10,14 +10,13 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.setGlobalPrefix('api'); // 设置全局路由前缀
-  console.log('s', process.env.NODE_ENV);
-
+  // 使用全局过滤器
   app.useGlobalFilters(
     new HttpExceptionFilter(),
     new ValidationExceptionFilter(),
-  ); // 使用全局过滤器
-
-  app.useGlobalInterceptors(new TransformInterceptor()); // 使用全局拦截器
+  );
+  // 使用全局拦截器
+  app.useGlobalInterceptors(new TransformInterceptor());
   app.useGlobalPipes(
     new ValidationPipe({
       enableDebugMessages: true,
