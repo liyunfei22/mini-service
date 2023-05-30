@@ -39,11 +39,11 @@ export class CattleService {
   }
 
   async update(updateCattleDto: UpdateCattleDto) {
-    const beefToUpdate = await this.cattleRepository.findOneBy({
+    const cattleToUpdate = await this.cattleRepository.findOneBy({
       id: updateCattleDto.id,
     });
-    beefToUpdate.name = updateCattleDto.name;
-    return await this.cattleRepository.save(beefToUpdate);
+    cattleToUpdate.name = updateCattleDto.name;
+    return await this.cattleRepository.save(cattleToUpdate);
   }
 
   async delete(id: number) {
