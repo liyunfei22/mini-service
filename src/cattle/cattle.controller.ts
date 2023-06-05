@@ -22,11 +22,11 @@ export class CattleController {
     @Query('page', new ParseIntPipe()) page: number,
     @Query('pageSize', new ParseIntPipe()) pageSize: number,
   ) {
-    const { cattles, totalCount } = await this.cattleService.paginate(
+    const { cattle, totalCount } = await this.cattleService.paginate(
       page,
       pageSize,
     );
-    return { cattles, totalCount };
+    return { cattle, totalCount };
   }
 
   @Get('/all')
