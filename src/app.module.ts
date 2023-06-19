@@ -2,10 +2,8 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CattleModule } from './cattle/cattle.module';
 import { FeedModule } from './feed/feed.module';
-import { UserModule } from './user/user.module';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
 import configuration from './config/configuration';
 import { AppController } from './app.controller';
 import { OrderModule } from './order/order.module';
@@ -28,8 +26,6 @@ import { OrderModule } from './order/order.module';
     }),
     CattleModule,
     FeedModule,
-    UserModule,
-    AuthModule,
     OrderModule,
   ],
   controllers: [AppController],

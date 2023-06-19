@@ -9,7 +9,8 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.setGlobalPrefix('api'); // 设置全局路由前缀
+  // 设置全局路由前缀
+  app.setGlobalPrefix('api');
   // 使用全局过滤器
   app.useGlobalFilters(
     new HttpExceptionFilter(),
