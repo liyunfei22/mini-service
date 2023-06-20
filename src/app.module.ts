@@ -6,7 +6,6 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { AppController } from './app.controller';
-import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -26,7 +25,6 @@ import { OrderModule } from './order/order.module';
     }),
     CattleModule,
     FeedModule,
-    OrderModule,
   ],
   controllers: [AppController],
   providers: [],
